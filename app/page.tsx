@@ -26,7 +26,7 @@ export default function Home() {
         />
         <button
           type="submit"
-          className="mt-4 w-full bg-black text-white font-semibold py-3 rounded-md hover:bg-gray-800 transition"
+          className="bg-gold text-jet hover:scale-105 hover:shadow-gold transition-all duration-200"
         >
           🔒 Join the Waitlist Now
         </button>
