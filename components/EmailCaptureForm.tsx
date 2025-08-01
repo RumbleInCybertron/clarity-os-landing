@@ -9,27 +9,28 @@ export default function EmailCaptureForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault() // Important
-    setStatus('loading')
-    setError(null)
 
     try {
-      const res = await fetch('/api/subscribe', {
+      const res = await fetch('https://api.derek.haus/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      })
-
-      const data = await res.json()
+        body: JSON.stringify({ 
+          email, 
+          source: 'clarity', 
+          message: '' 
+        })
+      });
 
       if (!res.ok) {
-        throw new Error(data.error || 'Something went wrong')
+        const err = await res.json();
+        throw new Error(err?.error || 'Something went wrong')
       }
 
-      setStatus('success')
+      alert("Thank you for subscribing! You are officially on the list.")
       setEmail('')
     } catch (err: any) {
-      setStatus('error')
-      setError(err.message)
+      console.error('Subscription failed:', err.message);
+      alert(`Subscription failed: ${err.message}`);
     }
   }
 

@@ -1,6 +1,7 @@
 
 // app/page.tsx
 import React from 'react';
+import EmailCaptureForm from '../components/EmailCaptureForm';
 
 export default function Home() {
   return (
@@ -18,19 +19,9 @@ export default function Home() {
         <li>✅ Grow smarter than your competitors</li>
       </ul>
 
-      <form className="mt-8 w-full max-w-md">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-        />
-        <button
-          type="submit"
-          className="bg-gold text-jet hover:scale-105 hover:shadow-gold transition-all duration-200"
-        >
-          🔒 Join the Waitlist Now
-        </button>
-      </form>
+      <div className="mt-8 w-full max-w-md">
+        <EmailCaptureForm />
+      </div>
 
       <p className="mt-6 text-sm text-gray-500">
         Want to be part of the first wave? Join the early access waitlist — unlock a smarter way to grow.
